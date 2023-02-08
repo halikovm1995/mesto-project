@@ -362,5 +362,32 @@ opacity: 0.5;
   }
   
 }
+.popup{
+
+
+}
+.popup__opened{
+
+}
+.popup__container {
+
+}
+
+.popup__form {
+
+}
+.popup__toggle-image {
+
+}
+
+.popup__heading {
+ 
+}
+.popup__input {
+
+}
+.popup__item {
+
+}
 
 * { outline: 1px solid yellowgreen; }
