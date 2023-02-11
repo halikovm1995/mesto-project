@@ -5,6 +5,9 @@
   line-height: 48px;
   max-width: 294px;
   margin: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
   }
 
 @media screen and (max-width: 670px) {
@@ -17,7 +20,7 @@
 
 @media screen and (max-width: 320px) {
   .profile__name{
-    margin-top: 27px;
+    margin-top: 25px;
     margin-left: 28px;
   }
 }

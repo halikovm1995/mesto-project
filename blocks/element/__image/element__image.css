@@ -2,5 +2,7 @@
 	object-fit: cover;
 	background-size: cover;
 	position: relative;
-	margin-bottom: -4px;
+	display: flex;
+  width: 282px;
+  height: 282px;
 }

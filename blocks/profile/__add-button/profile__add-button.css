@@ -1,16 +1,18 @@
 .profile__add-button{
   background: url(../../../images/krest.svg);
-  border: solid 1px white;
+  border: solid 2px #ffffff;
   background-repeat: no-repeat;
   width: 150px;
   height: 50px;
   background-position: center;
+  border-radius: 2px;
 }
 
 @media screen and ( max-width: 670px) {
   .profile__add-button{
     width: 282px;
     margin: 34px auto;
+    background-size: 16px;
   }
 }
 

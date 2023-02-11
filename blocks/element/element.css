@@ -1,17 +1,16 @@
-.elements{
+.element{
 	margin: auto;
 	margin-top: 50px;
 }
 
 @media screen and ( max-width: 920px) {
-	.elements{
+	.element{
 		max-width: 90%;
 	}
 }
 
 @media screen and ( max-width: 670px) {
-	.elements{
+	.element{
 		margin-top: 0px;
-		max-width: 90%;
 	}
 }
