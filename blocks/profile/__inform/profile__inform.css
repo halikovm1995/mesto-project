@@ -9,5 +9,6 @@
   .profile__inform{
     justify-content: center;
     align-items: end;
+    max-width: 380px;
   }
 }
