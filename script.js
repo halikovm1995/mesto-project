@@ -5,7 +5,34 @@ const jobInput = document.querySelector('#jobinput');// Воспользуйте
 const profileName = document.querySelector('.profile__name');
 const profileDescription = document.querySelector('.profile__description')
 
- profileButton.addEventListener('click', function(){ //добавление кнопки открытия попап профиля
+const initialCards = [
+    {
+      name: 'Архыз',
+      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
+    },
+    {
+      name: 'Челябинская область',
+      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
+    },
+    {
+      name: 'Иваново',
+      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
+    },
+    {
+      name: 'Камчатка',
+      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
+    },
+    {
+      name: 'Холмогорский район',
+      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
+    },
+    {
+      name: 'Байкал',
+      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
+    }
+  ]; 
+
+profileButton.addEventListener('click', function(){ //добавление кнопки открытия попап профиля
     formElement.classList.add('popup_opened')
  })
 const popupClose = document.querySelector('.popup__close-icon');
@@ -26,3 +53,14 @@ function handleFormSubmit(evt) {
 formElement.addEventListener('submit', handleFormSubmit); 
 nameInput.value = profileName.textContent
 jobInput.value = profileDescription.textContent 
+
+function addItem(linkValue, nameValue){
+    const itemTemplate = document.querySelector('#template-element').textContent;
+    const itemElement = itemTemplate.querySelector('.element__item').cloneNode(true);
+    itemElement.querySelector('.element__image').src = linkValue;
+    itemElement.querySelector('.element__title').textContent = nameValue;
+    elementContainer.append(itemElement);
+}
+
+
+
