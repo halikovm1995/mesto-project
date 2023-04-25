@@ -4,15 +4,25 @@ const nameInput = document.querySelector('#nameinput'); //
 const jobInput = document.querySelector('#jobinput');// 
 const profileName = document.querySelector('.profile__name');
 const profileDescription = document.querySelector('.profile__description')
-const formAddPhoto = document.querySelector('#popup-photo'); 
+const formAddMesto = document.querySelector('#popup-mesto'); 
 const addPhotoButton = document.querySelector('.profile__add-button');
 const elementContainer = document.querySelector('.element__list')
 const itemTemplate = document.querySelector('#template-item').content;
-const popupClose = document.querySelector('#popup-close');
-popupClose.addEventListener('click', function() {
-    formElement.classList.remove('popup_opened');
+const popupClose = document.querySelectorAll('#popup-close');
+const nameMesto = ducument.querySelector('#name-mesto');
+const linkMesto = document.querySelector('#link-mesto');
+// popupClose.addEventListener('click', function() {
+//     formElement.classList.remove('popup_opened');
 
-})
+// })
+
+for(let i = 0; i < popupClose.length; i++){
+  const el = popupClose[i]; 
+  el.addEventListener('click', function() {
+    formElement.classList.remove('popup_opened');
+    formAddMesto.classList.remove('popup_opened');
+  })
+}
 const initialCards = [
     {
       name: 'Архыз',
@@ -47,7 +57,7 @@ const initialCards = [
 
  
 addPhotoButton.addEventListener('click', function(){ //добавление кнопки открытия попап профиля
-  formAddPhoto.classList.add('popup_opened')
+  formAddMesto.classList.add('popup_opened')
 })
 
 
@@ -60,6 +70,13 @@ function handleFormSubmit(evt) {
     formElement.classList.remove('popup_opened');
 
 }
+
+function createCards(nameCardValue, linkCardValue) {
+  const itemElement = itemTemplate.querySelector('.element__item').cloneNode(true);
+
+
+}
+
 
 formElement.addEventListener('submit', handleFormSubmit); 
 nameInput.value = profileName.textContent
