@@ -73,10 +73,21 @@ function handleFormSubmit(evt) {
 
 function createCards(nameCardValue, linkCardValue) {
   const itemElement = itemTemplate.querySelector('.element__item').cloneNode(true);
+  itemElement.querySelector('.element__image').src = linkCardValue;
+  itemElement.querySelector('.element__title').textContent = nameCardValue;
+
+
 
 
 }
+formElement.addEventListener('submit', addCards); 
+function addCards(evt) {
 
+  evt.preventDefault(); 
+
+elementContainer.append(itemElement);
+
+}
 
 formElement.addEventListener('submit', handleFormSubmit); 
 nameInput.value = profileName.textContent
