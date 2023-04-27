@@ -9,7 +9,7 @@ const addPhotoButton = document.querySelector('.profile__add-button');
 const elementContainer = document.querySelector('.element__list')
 const itemTemplate = document.querySelector('#template-item').content;
 const popupClose = document.querySelectorAll('#popup-close');
-const nameMesto = ducument.querySelector('#name-mesto');
+const nameMesto = document.querySelector('#name-mesto');
 const linkMesto = document.querySelector('#link-mesto');
 // popupClose.addEventListener('click', function() {
 //     formElement.classList.remove('popup_opened');
@@ -23,6 +23,8 @@ for(let i = 0; i < popupClose.length; i++){
     formAddMesto.classList.remove('popup_opened');
   })
 }
+
+//Массив с картинками
 const initialCards = [
     {
       name: 'Архыз',
@@ -50,19 +52,19 @@ const initialCards = [
     }
   ]; 
 
-  
-  profileButton.addEventListener('click', function(){ //добавление кнопки открытия попап профиля
+  //добавление кнопки открытия попап профиля
+  profileButton.addEventListener('click', function(){ 
     formElement.classList.add('popup_opened')
  })
 
- 
-addPhotoButton.addEventListener('click', function(){ //добавление кнопки открытия попап профиля
+  //добавление кнопки открытия попап профиля
+addPhotoButton.addEventListener('click', function(){
   formAddMesto.classList.add('popup_opened')
 })
 
 
 
-
+// Функция изменения данных в профиле
 function handleFormSubmit(evt) {
     evt.preventDefault(); 
     profileName.textContent = nameInput.value
@@ -71,30 +73,14 @@ function handleFormSubmit(evt) {
 
 }
 
-function createCards(nameCardValue, linkCardValue) {
-  const itemElement = itemTemplate.querySelector('.element__item').cloneNode(true);
-  itemElement.querySelector('.element__image').src = linkCardValue;
-  itemElement.querySelector('.element__title').textContent = nameCardValue;
 
-
-
-
-}
-formElement.addEventListener('submit', addCards); 
-function addCards(evt) {
-
-  evt.preventDefault(); 
-
-elementContainer.append(itemElement);
-
-}
-
+//слушатель события рекдактировать профиль
 formElement.addEventListener('submit', handleFormSubmit); 
 nameInput.value = profileName.textContent
 jobInput.value = profileDescription.textContent 
 
 
-
+//метод клонирования карточки место
 initialCards.forEach(function (element){
   const itemElement = itemTemplate.querySelector('.element__item').cloneNode(true);
   itemElement.querySelector('.element__image').src = element.link;
@@ -103,4 +89,47 @@ initialCards.forEach(function (element){
 });
 
 
+
+
+
+
+
+
+//Функция создания карточки место с картиной
+function createCards(nameCardValue, linkCardValue) {
+  const itemElement = itemTemplate.querySelector('.element__item').cloneNode(true);
+  itemElement.querySelector('.element__image').src = linkCardValue;
+  itemElement.querySelector('.element__image').alt = nameCardValue;
+  itemElement.querySelector('.element__title').textContent = nameCardValue;
+
+
+
+
+   return itemElement
+}
+
+
+
+
+//Функция добавления карточки место
+function addCards(evt) {
+  evt.preventDefault(); 
+  elementContainer.prepend(createCards(nameMesto.value, linkMesto.value)); 
+  formAddMesto.classList.remove('popup_opened');
+
+}
+
+//слушатель события формы место
+formAddMesto.addEventListener('submit', addCards); 
+
+const elementLike = document.querySelectorAll('.element__like')
+
+elementLike.forEach(function(element){
+
+  element.addEventListener('click', function (evt){
+    evt.target.classList.toggle('element__like_active');
+    // const evtTarget = evt.target;
+    // evtTarget.setAttribute('disabled', true);
+   }); 
+})
 
