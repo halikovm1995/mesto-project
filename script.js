@@ -133,3 +133,18 @@ elementLike.forEach(function(element){
    }); 
 })
 
+
+
+
+
+
+const elementDelete = document.querySelectorAll('.element__delete')
+
+
+elementDelete.forEach(function(el){
+  el.addEventListener('click', function(evt){
+  evt.target.closest('.element__item').remove();
+  })
+})
+
+
