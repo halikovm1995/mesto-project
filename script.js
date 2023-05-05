@@ -11,16 +11,14 @@ const itemTemplate = document.querySelector('#template-item').content;
 const popupClose = document.querySelectorAll('#popup-close');
 const nameMesto = document.querySelector('#name-mesto');
 const linkMesto = document.querySelector('#link-mesto');
-// popupClose.addEventListener('click', function() {
-//     formElement.classList.remove('popup_opened');
 
-// })
 
 for(let i = 0; i < popupClose.length; i++){
   const el = popupClose[i]; 
   el.addEventListener('click', function() {
     formElement.classList.remove('popup_opened');
     formAddMesto.classList.remove('popup_opened');
+    popupImage.classList.remove('popup_opened');
   })
 }
 
@@ -128,8 +126,6 @@ elementLike.forEach(function(element){
 
   element.addEventListener('click', function (evt){
     evt.target.classList.toggle('element__like_active');
-    // const evtTarget = evt.target;
-    // evtTarget.setAttribute('disabled', true);
    }); 
 })
 
@@ -148,3 +144,17 @@ elementDelete.forEach(function(el){
 })
 
 
+
+
+
+
+const popupImage = document.querySelector('#popup-image');
+const elementImages = document.querySelectorAll('.element__image')
+
+const elementBigImage = document.querySelector('.element__image_big')
+
+elementImages.forEach(elementImage => {
+  elementImage.addEventListener('click', () =>{
+    popupImage.classList.add("popup_opened");
+  })
+})

@@ -34,5 +34,8 @@
 @import url(../blocks/popup/__button/popup__button.css);
 @import url(../images/delete.svg);
 
-
+.element__image_big{
+    max-width: 75vw;
+    max-height: 75vh;
+}
 
