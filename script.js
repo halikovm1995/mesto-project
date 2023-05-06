@@ -153,8 +153,10 @@ const elementImages = document.querySelectorAll('.element__image')
 
 const elementBigImage = document.querySelector('.element__image_big')
 
+
 elementImages.forEach(elementImage => {
   elementImage.addEventListener('click', () =>{
-    popupImage.classList.add("popup_opened");
+    popupImage.classList.toggle("popup_opened");
+    
   })
 })
