@@ -34,8 +34,23 @@
 @import url(../blocks/popup/__button/popup__button.css);
 @import url(../images/delete.svg);
 
-.element__image_big{
-    max-width: 75vw;
-    max-height: 75vh;
+.popup__image_big{
+	max-width: 75vw;
+	max-height: 75vh;
+	margin:auto;
 }
 
+.popup__image_text{
+	font-weight: 400;
+	font-size: 12px;
+	line-height: 14.52px;
+	color: #FFFFFF;
+	margin-top: 10px;
+}
+.popup__image{
+	background: rgba(0, 0, 0, 0.9);
+}
+
+.popup__container_image{
+	min-width: 240px;
+}
