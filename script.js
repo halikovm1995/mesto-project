@@ -79,10 +79,25 @@ initialCards.forEach(function (element){
   itemElement.querySelector('.element__image').alt = element.name;
   itemElement.querySelector('.element__title').textContent = element.name;
   elementContainer.append(itemElement);
+  
+  
+//Функция создания карточки место с картиной
+function createCards(nameCardValue, linkCardValue) {
+  const itemElement = itemTemplate.querySelector('.element__item').cloneNode(true);
+  itemElement.querySelector('.element__image').src = linkCardValue;
+  itemElement.querySelector('.element__image').alt = nameCardValue;
+  itemElement.querySelector('.element__title').textContent = nameCardValue;
+  itemElement.querySelector('.element__like').addEventListener('click', function(evt){
+    evt.target.classList.toggle('element__like_active')
+  })
+  itemElement.querySelector('.element__delete').addEventListener('click', function(evt){
+    evt.target.closest('.element__item').remove()
+  })
+return itemElement
+}
 });
 
 const elementDelete = document.querySelectorAll('.element__delete')
-
 //Функция создания карточки место с картиной
 function createCards(nameCardValue, linkCardValue) {
   const itemElement = itemTemplate.querySelector('.element__item').cloneNode(true);
