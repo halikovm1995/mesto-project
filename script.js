@@ -119,7 +119,7 @@ function createCards(nameCardValue, linkCardValue) {
   })
 return itemElement
 }
-
+ 
 //Функция добавления карточки место
 function addCards(evt) {
   evt.preventDefault(); 
