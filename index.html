@@ -51,21 +51,21 @@
     <div class="popup" id="popup-profile">
       <div class="popup__container">
         <button class="popup__close-icon" type="button"></button>
-        <form class="popup__form" name="form-edit">
+        <form class="popup__form" id="form-name" name="form-edit">
           <h2 class="popup__heading">Редактировать профиль
           </h2>
-          <fieldset class="popup__input">
-            <input class="popup__item" id="nameinput" type="text" placeholder="ИМЯ" name="name" value="Жак-Ив Кусто">
-            <input class="popup__item" id="jobinput" type="text" placeholder="О себе" name="description" value="Исследователь океана">
-          </fieldset>
-          <button class="popup__button" type="submit">Сохранить</button>
+          <div class="popup__input">
+            <input class="popup__item" id="nameinput" type="text" placeholder="ИМЯ" name="name" value="">
+            <input class="popup__item" id="jobinput" type="text" placeholder="О себе" name="description" value="">
+          </div>
+          <button class="popup__button" id="submit-profile" type="submit">Сохранить</button>
         </form>
       </div>
     </div>
     <div class="popup" id="popup-mesto">
       <div class="popup__container">
         <button class="popup__close-icon" type="button"></button>
-        <form class="popup__form" name="form-edit">
+        <form class="popup__form" id="form-mesto" name="form-edit">
           <h2 class="popup__heading">Новое место
           </h2>
           <fieldset class="popup__input">
