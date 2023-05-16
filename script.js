@@ -18,7 +18,7 @@ const formMesto = document.querySelector('#form-mesto');
 const formName = document.querySelector('#form-name')
 const popupList = document.querySelectorAll('.popup');
 //Массив с картинками
-const initialCards = [
+const initalCardsList = [
   {
     name: 'Архыз',
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
@@ -52,32 +52,34 @@ function openePopup(el){
   el.classList.add('popup_opened');
 };
 
+  //добавление кнопки открытия попап профиля
+profileButton.addEventListener('click', function(){
+  openePopup(formElementProfile);
+  nameInput.value = profileName.textContent;
+  jobInput.value = profileDescription.textContent; 
+});
+
 popupCloseList.forEach(function(item){
   item.addEventListener('click', function() {
     popupList.forEach(function(el){
       closePopup(el);
-    })
+    });
     nameInput.value = profileName.textContent;
     jobInput.value = profileDescription.textContent;
-    linkCardValue = '';
-    nameCardValue ='';
-  })
-})
+  });
+});
 
-  //добавление кнопки открытия попап профиля
-profileButton.addEventListener('click', function(){
-openePopup(formElementProfile);
-nameInput.value = profileName.textContent;
-jobInput.value = profileDescription.textContent; 
-})
+
 
 //добавление кнопки открытия попап место
 addPhotoButton.addEventListener('click', function(){
-openePopup(formAddMesto);
+  openePopup(formAddMesto);
+  linkCardValue = '';
+  nameCardValue ='';
 })
 
 // Функция изменения данных в профиле
-function handleFormSubmit(evt) {
+function editPopupProfile(evt) {
   evt.preventDefault(); 
   profileName.textContent = nameInput.value
   profileDescription.textContent = jobInput.value
@@ -85,8 +87,8 @@ function handleFormSubmit(evt) {
 }
 
 //слушатель события рекдактировать профиль
-formName.addEventListener('submit', handleFormSubmit); 
-initialCards.forEach(function (el){
+formName.addEventListener('submit', editPopupProfile); 
+initalCardsList.forEach(function (el){
   elementContainer.append(createCards(el.name, el.link))
 })
 
@@ -96,27 +98,27 @@ function createCards(nameCardValue, linkCardValue) {
   itemElement.querySelector('.element__image').src = linkCardValue;
   itemElement.querySelector('.element__image').alt = nameCardValue;
   itemElement.querySelector('.element__title').textContent = nameCardValue;
-  //обработчик лайков карточек
-  itemElement.querySelector('.element__like').addEventListener('click', function(evt){
-    evt.target.classList.toggle('element__like_active')
-  })
+//обработчик лайков карточек
+itemElement.querySelector('.element__like').addEventListener('click', function(evt){
+  evt.target.classList.toggle('element__like_active')
+})
 
-  //обработчик удаления карточек
-  itemElement.querySelector('.element__delete').addEventListener('click', function(evt){
-    evt.target.closest('.element__item').remove()
-  })
+//обработчик удаления карточек
+itemElement.querySelector('.element__delete').addEventListener('click', function(evt){
+  evt.target.closest('.element__item').remove()
+})
 
-  //обработчик увеличения картинок
-  itemElement.querySelector('.element__image').addEventListener('click', function(evt){
-    const imgSrc = evt.target.getAttribute('src');
-    const nameNe = evt.target.alt;
-    const imageAlt = evt.target.getAttribute('alt');
-    elementBigText.textContent = nameNe;
-    elementBigImage.setAttribute('src', imgSrc)
-    elementBigImage.setAttribute('alt', nameNe)
-    // popupImage.classList.add("popup_opened");
-    openePopup(popupImage)
-  })
+//обработчик увеличения картинок
+itemElement.querySelector('.element__image').addEventListener('click', function(evt){
+  const imgSrc = evt.target.getAttribute('src');
+  const nameNe = evt.target.alt;
+  const imageAlt = evt.target.getAttribute('alt');
+  elementBigText.textContent = nameNe;
+  elementBigImage.setAttribute('src', imgSrc)
+  elementBigImage.setAttribute('alt', nameNe)
+  // popupImage.classList.add("popup_opened");
+  openePopup(popupImage)
+})
 return itemElement
 }
  
