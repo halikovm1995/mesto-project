@@ -45,12 +45,16 @@ const initalCardsList = [
   }
 ]; 
 
-function closePopup(el){
-  el.classList.remove('popup_opened');
+function closePopup(popup){
+  popup.classList.remove('popup_opened');
 };
-function openePopup(el){
-  el.classList.add('popup_opened');
+function openePopup(popup){
+  popup.classList.add('popup_opened');
+  
 };
+
+
+
 
   //добавление кнопки открытия попап профиля
 profileButton.addEventListener('click', function(){
@@ -58,6 +62,8 @@ profileButton.addEventListener('click', function(){
   nameInput.value = profileName.textContent;
   jobInput.value = profileDescription.textContent; 
 });
+
+
 
 popupCloseList.forEach(function(item){
   item.addEventListener('click', function() {
@@ -69,8 +75,23 @@ popupCloseList.forEach(function(item){
   });
 });
 
+    //Закрытие Esc
+    document.addEventListener("keydown", function(evt) {
+      if (evt.key === 'Escape') {
+        const activePopup = document.querySelector(".popup_opened")
+        closePopup(activePopup);
 
+      }
+    })
 
+    document.addEventListener("click", function(evt) {
+      if (evt.target.classList.contains('popup')) {
+        const activePopup = document.querySelector(".popup_opened")
+        closePopup(activePopup);
+        
+      }
+      console.log(privet)
+    })
 //добавление кнопки открытия попап место
 addPhotoButton.addEventListener('click', function(){
   openePopup(formAddMesto);
